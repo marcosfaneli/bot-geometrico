@@ -1,13 +1,15 @@
 package bot;
 
 import bot.calculadora.Quadrado;
+import bot.calculadora.Triangulo;
+import java.util.Scanner;
 
 public class Bot {
 
     public static void main(String[] args) {
-        Quadrado quad = new Quadrado();
+        System.out.println("Bem vindo a calculadora geométrica");
         
-        quad.executar();
+        Menu m = new Menu();
+        m.iniciar();
     }
-    
 }

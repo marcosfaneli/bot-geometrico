@@ -1,9 +1,9 @@
 package bot.calculadora;
 
-public class Quadrado extends AbstractCalculadora{
-    
+public class Quadrado extends AbstractCalculadora {
+
     @Override
-     public void calcular() {
+    public void calcular() {
         System.out.println("Digite a medida do lado do quadrado:");
         String valor = leitor.nextLine();
 

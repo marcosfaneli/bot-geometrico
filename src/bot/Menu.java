@@ -5,6 +5,8 @@
  */
 package bot;
 
+import bot.calculadora.AbstractCalculadora;
+import bot.calculadora.Perimetro;
 import bot.calculadora.Quadrado;
 import bot.calculadora.Triangulo;
 import java.util.Scanner;
@@ -32,20 +34,38 @@ public class Menu {
     
     public void iniciar(){
         System.out.println("Escolha uma opção de cálculo:");
-        System.out.println("1 - Quadrado \n2 - Triangulo");
+        System.out.println("1 - Quadrado \n2 - Triangulo \n3 - Perimetro");
         
         String resposta = leitor.nextLine();
         
-        System.out.println("Você escolheu a opção " + resposta);
+        this.chamarCalculadora(resposta);
+    }
+    
+    public void chamarCalculadora(String opcao){
+        System.out.println("Você escolheu a opção " + opcao);
         
-        if(resposta.equals("1")){
-            Quadrado calculadora = new Quadrado();
+        AbstractCalculadora calculadora = null;
+        
+        switch (opcao) {
+            case "1":{
+                    calculadora = new Quadrado();
+                    break;
+                }
+            case "2":{
+                    calculadora = new Triangulo();
+                    break;
+                }
+            case "3":{
+                    calculadora = new Perimetro();
+                    break;
+                }
+            default:
+                System.out.println("Você digitou uma opção inválida");
+                break;
+        }
+        
+        if(calculadora != null){
             calculadora.executar();
-        }else if (resposta.equals("2")){
-            Triangulo calculadora = new Triangulo();
-            calculadora.executar();
-        }else {
-            System.out.println("Você digitou uma opção inválida");
         }
         
         this.perguntar();
